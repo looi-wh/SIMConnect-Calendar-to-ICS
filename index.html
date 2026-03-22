@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIM Calendar Parser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="view is-active" data-view="home">
+      <div class="hero-panel">
+        <div class="hero-copy">
+          <h1 class="home-title">SIM Calendar Toolkit</h1>
+          <p class="lede">A simple web-based tool to help you import school schedules into your favourite calendar applications.</p>
+        </div>
+      </div>
+
+      <section class="tool-grid">
+        <article class="tool-card accent-convert">
+          <p class="tool-index">01</p>
+          <h2>Convert SIM to ICS</h2>
+          <p class="tool-copy">Turn SIM list-view timetable data into a downloadable calendar file.</p>
+          <button class="launch-button" type="button" data-open-view="convert">Open converter</button>
+        </article>
+
+        <article class="tool-card accent-viewer">
+          <p class="tool-index">02</p>
+          <h2>View ICS schedule</h2>
+          <p class="tool-copy">Open one calendar file and read the schedule in a clean agenda layout.</p>
+          <button class="launch-button" type="button" data-open-view="viewer">Open viewer</button>
+        </article>
+
+        <article class="tool-card accent-compare">
+          <p class="tool-index">03</p>
+          <h2>Compare 2 ICS files</h2>
+          <p class="tool-copy">Find classes that changed date, time, or location between two calendars.</p>
+          <button class="launch-button" type="button" data-open-view="compare">Open comparer</button>
+        </article>
+      </section>
+    </section>
+
+    <section class="view tool-view" data-view="convert">
+      <header class="tool-header">
+        <div>
+          <p class="eyebrow">Tool 1</p>
+          <h2>Convert SIM timetable to ICS</h2>
+          <p class="tool-subtitle">Use this when you have a SIM page saved with SingleFile, or copied timetable text, and want a calendar file.</p>
+        </div>
+      </header>
+
+      <section class="tool-layout">
+        <article class="info-card">
+          <h3>What this tool does</h3>
+          <p>It reads SIM timetable content, extracts classes and meeting dates, then generates an ics file for calendar apps.</p>
+          <h3>What you can provide</h3>
+          <ul class="feature-list">
+            <li>SIM HTML page saved with SingleFile</li>
+            <li>Copied timetable text from SIM</li>
+          </ul>
+        </article>
+
+        <article class="workspace-card">
+          <div class="workspace-head">
+            <h3>Upload or paste timetable data</h3>
+            <p>Upload a SIM HTML page saved with SingleFile, or paste copied timetable text from SIM.</p>
+          </div>
+
+          <label class="dropzone" id="sim-dropzone" for="sim-file-input">
+            <input id="sim-file-input" type="file" accept=".html,.htm,text/html">
+            <strong>Click here or drop file into this field</strong>
+          </label>
+
+          <p class="status helper-note">Only SIM HTML files saved with the SingleFile browser extension are supported for file upload.</p>
+
+          <div class="field-stack">
+            <label for="sim-source-input">Auto-detect schedule from text</label>
+            <p class="status helper-note">Tool can also automatically parse schedule from SIM website.</p>
+            <textarea id="sim-source-input" placeholder="Go to SIM > My Timetable (List View:Class). Copy and paste the text into this field."></textarea>
+          </div>
+
+          <div class="actions">
+            <button id="download-ics-button" class="secondary-button" type="button" disabled>Download ICS</button>
+            <button id="convert-clear-button" class="ghost-button" type="button" disabled>Clear</button>
+            <button id="convert-reset-button" class="ghost-button" type="button">Back</button>
+          </div>
+
+          <p class="status" id="convert-status"></p>
+          <div id="convert-output" class="result-panel hidden"></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="view tool-view" data-view="viewer">
+      <header class="tool-header">
+        <div>
+          <p class="eyebrow">Tool 2</p>
+          <h2>View an ICS schedule</h2>
+          <p class="tool-subtitle">Use this when you want to inspect one calendar file in a clean, readable agenda view.</p>
+        </div>
+      </header>
+
+      <section class="tool-layout single-column">
+        <article class="info-card compact-info">
+          <h3>What this tool does</h3>
+          <p>It reads one ics file and groups events by date so the schedule is easier to scan.</p>
+        </article>
+
+        <article class="workspace-card">
+          <div class="workspace-head">
+            <h3>Upload one ICS file</h3>
+            <p>The schedule appears below once the file is parsed.</p>
+          </div>
+
+          <label class="dropzone" id="viewer-dropzone" for="viewer-file-input">
+            <input id="viewer-file-input" type="file" accept=".ics,text/calendar">
+            <strong>Click here or drop file into this field</strong>
+          </label>
+
+          <div class="actions">
+            <button id="viewer-clear-button" class="ghost-button" type="button" disabled>Clear</button>
+            <button id="viewer-reset-button" class="ghost-button" type="button">Back</button>
+          </div>
+
+          <p class="status" id="viewer-status"></p>
+          <div id="viewer-output" class="result-panel hidden"></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="view tool-view" data-view="compare">
+      <header class="tool-header">
+        <div>
+          <p class="eyebrow">Tool 3</p>
+          <h2>Compare 2 ICS files</h2>
+          <p class="tool-subtitle">Use this when you want to identify classes that changed date, time, or venue between two calendars.</p>
+        </div>
+      </header>
+
+      <section class="tool-layout single-column">
+        <article class="info-card compact-info">
+          <h3>What this tool does</h3>
+          <p>It compares two calendars event-by-event, plots the changed classes onto a calendar, and also shows what was added or removed.</p>
+        </article>
+
+        <article class="workspace-card">
+          <div class="workspace-head">
+            <h3>Upload ICS 1 and ICS 2</h3>
+            <p>Drop the earlier calendar into ICS 1 and the newer calendar into ICS 2. Matching events are merged quietly, and changed events are highlighted on the calendar.</p>
+          </div>
+
+          <div class="compare-upload-grid">
+            <label class="dropzone compare-dropzone-box" id="compare-dropzone-1" for="compare-file-input-1">
+              <input id="compare-file-input-1" type="file" accept=".ics,text/calendar">
+              <strong>Click here or drop file into this field</strong>
+              <span class="status upload-note" id="compare-file-note-1">No file loaded yet.</span>
+            </label>
+
+            <label class="dropzone compare-dropzone-box" id="compare-dropzone-2" for="compare-file-input-2">
+              <input id="compare-file-input-2" type="file" accept=".ics,text/calendar">
+              <strong>Click here or drop file into this field</strong>
+              <span class="status upload-note" id="compare-file-note-2">No file loaded yet.</span>
+            </label>
+          </div>
+
+          <div class="compare-warning hidden" id="compare-order-warning">
+            <h3 class="compare-warning-title">WARNING</h3>
+            <p class="compare-warning-text" id="compare-order-warning-text"></p>
+            <button id="compare-swap-button" class="ghost-button" type="button">Swap</button>
+          </div>
+
+          <div class="actions">
+            <button id="compare-download-button" class="secondary-button" type="button" disabled>Download Only Updated Events</button>
+            <button id="compare-clear-button" class="ghost-button" type="button" disabled>Clear</button>
+            <button id="compare-reset-button" class="ghost-button" type="button">Back</button>
+          </div>
+
+          <div class="compare-meta" id="compare-meta"></div>
+          <p class="status" id="compare-status"></p>
+          <div id="compare-output" class="result-panel"></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
