@@ -1,7 +1,7 @@
 # SIMConnect-Calendar-to-ICS
 Web-based tool for converting SIM timetable to ics file. No downloads or installations.
 
-Page URL: [https://looi-wh.github.io/SIMConnect-Calendar-to-ICS](https://looi-wh.github.io/SIMConnect-Calendar-to-ICS)
+Tool URL: [https://looi-wh.github.io/SIMConnect-Calendar-to-ICS](https://looi-wh.github.io/SIMConnect-Calendar-to-ICS)
 
 ### Steps
 1. Browse to the following in `https://simconnect.simge.edu.sg`
@@ -16,8 +16,8 @@ SIM Connect > My Apps > Enrollment > My Timetable (List View:Class)
 8. ICS file will be valid for any applications such as Google Calendar and iOS Calendar
 
 ### Other tools
-Tool 2: ICS file viewer. Useful for quickly checking ICS files
-Tool 3: Compare two timetables. Useful for checking classes with changed location/datetime
+- Tool 2: ICS file viewer. Useful for quickly checking ICS files
+- Tool 3: Compare two timetables. Useful for checking classes with changed location/datetime
 
 ### Note
 Website is hosted in GitHub via Pages.
