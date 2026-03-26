@@ -1,10 +1,8 @@
 # SIMConnect-Calendar-to-ICS
 Web-based tool for converting SIM timetable to ics file. No dependencies. No downloads or installations.
+Page URL: [https://looi-wh.github.io/SIMConnect-Calendar-to-ICS](https://looi-wh.github.io/SIMConnect-Calendar-to-ICS)
 
-Page URL:
-[https://looi-wh.github.io/SIMConnect-Calendar-to-ICS](https://looi-wh.github.io/SIMConnect-Calendar-to-ICS)
-
-Steps:
+### Steps:
 - Browse to the following in `https://simconnect.simge.edu.sg`
 ```
 SIM Connect > My Apps > Enrollment > My Timetable (List View:Class)
