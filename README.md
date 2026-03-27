@@ -6,7 +6,7 @@ Tool URL: [https://looi-wh.github.io/SIMConnect-Calendar-to-ICS](https://looi-wh
 ### Steps
 1. Browse to the following in `https://simconnect.simge.edu.sg`
 ```
-SIM Connect > My Apps > Enrollment > My Timetable (List View:Class)
+SIM Connect > My Apps > Self Service > Enrollment > My Timetable (List View:Class)
 ```
 2. `Ctrl` + `a` to select all text in the page
 3. `Ctrl` + `c` to copy all text in the page
